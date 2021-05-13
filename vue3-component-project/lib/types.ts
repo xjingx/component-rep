@@ -1,3 +1,4 @@
+import { PropType } from 'vue';
 // 枚举类型
 export enum SchemaTypes {
   'NUMBER' = 'number',
@@ -30,3 +31,17 @@ export interface Schema {
   additionalProperties?: any;
   additionalItems?: Schema;
 }
+
+export const FiledProps = {
+  schema: {
+    type: Object as PropType<Schema>,
+    required: true,
+  },
+  value: {
+    required: true,
+  },
+  onChange: {
+    type: Function as PropType<(v: any) => void>,
+    required: true,
+  },
+} as const;
